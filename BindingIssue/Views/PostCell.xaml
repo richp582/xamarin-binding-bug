@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           x:Class="BindingIssue.Views.PostCell">
+    <ContentView Padding="5" BackgroundColor="Transparent">
+        <Frame Grid.Row="0" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" OutlineColor="#262626" Padding="2"
+                BackgroundColor="#CFCFCF" CornerRadius="15">
+            <!--<StackLayout>-->
+            <Grid BackgroundColor="Transparent" VerticalOptions="StartAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image x:Name="profilePic" Grid.Row="0" Grid.Column="0" HeightRequest="70" Grid.RowSpan="2"
+                        WidthRequest="70" Source="{Binding ProfilePicUrl}" HorizontalOptions="Start" Margin="4,4,2,2"
+                        VerticalOptions="Start" Aspect="AspectFill">
+                </Image>
+                <Label x:Name="lblAuthor" Grid.Row="0" Grid.Column="2" Text="{Binding Author}" FontSize="16"
+                        VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Timestamp, StringFormat='{0:MMM d, yyyy h:mm tt}'}"
+                        FontSize="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+                <Label Text="{Binding Text}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" FontSize="16"
+                        BackgroundColor="Transparent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                        Margin="10,2" IsVisible="{Binding ContentIsText}" />
+            </Grid>
+        </Frame>
+    </ContentView>
+</ViewCell>
